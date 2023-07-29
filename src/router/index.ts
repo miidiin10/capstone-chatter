@@ -1,12 +1,47 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-// import HomeView from "../views/HomeView.vue";
-import NavBar from "../components/NavBar.vue";
+import HomeView from "../views/HomeView.vue";
+import LoginPage from "../views/LoginPage.vue";
+import AboutUs from "../views/AboutUs.vue";
+import Blog from "../views/Blog.vue";
+import Register from "../views/Register.vue"
+// import NavBar from "../components/NavBar.vue";
+import Contact from "../views/Contact.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
-    component: NavBar,
+    name: "HomeView",
+    component: HomeView,
+  },
+  // {
+  //   path: "/home",
+  //   name: "Home",
+  //   component: HomeView,
+  // },
+  {
+    path: "/login-page",
+    name: "Login",
+    component: LoginPage,
+  },
+  {
+    path: "/about-us",
+    name: "AboutUs",
+    component: AboutUs,
+  },
+  {
+    path: "/blog",
+    name: "Blog",
+    component: Blog,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
   },
   // {
   //   path: "/about",
@@ -20,7 +55,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
 });
 

@@ -2,24 +2,27 @@
   <div class="wrapper">
     <div class="app">
       <NavBar />
-      <!-- <router-view /> -->
+      <router-view />
+      
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+// import NavBar from "./views/NavBar.vue";
+// import LoginPage from "./views/LoginPage.vue";
 import NavBar from "./components/NavBar.vue";
 
 export default defineComponent({
   name: "App",
-  components: { NavBar },
+  components: { NavBar,  },
   data() {
     return {};
   },
 });
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 * {
@@ -43,11 +46,12 @@ export default defineComponent({
 .link {
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: black;
 }
 
 .link-light {
   color: #fff;
-}
+} 
+
 </style>

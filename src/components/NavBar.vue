@@ -3,17 +3,21 @@
       <header>
         <nav class="container">
           <div class="brand">
-            <router-link class="header" :to="{ name: 'Home' }"
+            <router-link class="header" to="/"
               >Chatter
             </router-link>
           </div>
           <div class="nav-links">
             <ul>
-              <router-link class="link" to="#">Home</router-link>
-              <router-link class="link" to="#">Blogs</router-link>
-              <router-link class="link" to="#">Create Post</router-link>
-              <router-link class="link" to="#">Login/Register</router-link>
+              <router-link class="link" to="/">Home</router-link>
+              <router-link class="link" to="about-us">About us</router-link>
+              <router-link class="link" to="contact">Contact</router-link>
+              <router-link class="link" to="blog">Blogs</router-link>
             </ul>
+          </div>
+          <div>
+            <router-link to="login-page"><button>Login</button></router-link>
+            <router-link to="register"><button>Sign up</button></router-link>
           </div>
         </nav>
         <Icon icon="gg:menu-round" class="menu-icon" />       
@@ -45,6 +49,18 @@
   });
   </script>
   <style lang="scss" scoped>
+
+@media only screen and (max-width: 450px)  {
+  ul {
+          margin-right: 9px;
+            
+          .link {
+            margin-right: 3px;
+            padding: 0;
+          }
+      
+}
+}
   
   header {
     background-color: #fff;
@@ -54,9 +70,12 @@
     z-index: 99;
   
     .link {
+      // display: inline;
       font-weight: 500;
-      padding: 0 8px;
+      font-size: 14px;
+      padding: 0 4px;
       transition: 0.3s color case;
+
   
       &:hover {
         color: #1eb8b8;
@@ -65,7 +84,7 @@
   
     nav {
       display: flex;
-      padding: 25px 0;
+      padding: 15px 0;
   
       .brand {
         display: flex;
@@ -82,15 +101,16 @@
       .nav-links {
         position: relative;
         display: flex;
+        // flex-wrap: nowrap;
         flex: 1;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
   
         ul {
-          margin-right: 32px;
-  
+          margin-right: 22px;
+ 
           .link {
-            margin-right: 32px;
+            margin-right: 15px;
           }
   
           .link:last-child {
@@ -99,7 +119,8 @@
         }
       }
     }
-  
+
+
     .menu-icon {
       visibility: hidden;
       cursor: pointer;
