@@ -6,12 +6,16 @@ import Blog from "../views/Blog.vue";
 import Register from "../views/Register.vue"
 // import NavBar from "../components/NavBar.vue";
 import Contact from "../views/Contact.vue"
+import { auth } from '../firebase'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "HomeView",
     component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
   },
   // {
   //   path: "/home",
@@ -32,6 +36,9 @@ const routes: Array<RouteRecordRaw> = [
     path: "/blog",
     name: "Blog",
     component: Blog,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/register",
@@ -42,6 +49,9 @@ const routes: Array<RouteRecordRaw> = [
     path: "/contact",
     name: "Contact",
     component: Contact,
+    meta: {
+      requiresAuth: true
+    }
   },
   // {
   //   path: "/about",
@@ -57,6 +67,20 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login-page' && auth.currentUser ) {
+    next('/')
+    return;
+  }
+
+  if (to.matched.some(record => record.meta.requireAuth) && !auth.currentUser) {
+    next('/login-page')
+    return;
+  }
+
+  next();
 });
 
 export default router;

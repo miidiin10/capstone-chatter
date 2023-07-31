@@ -2,23 +2,30 @@
   <div class="wrapper">
     <div class="app">
       <NavBar />
-      <router-view />
-      
+      <div>
+        <button @click="$store.dispatch('logout')">Logout</button>
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onBeforeMount } from "vue";
 // import NavBar from "./views/NavBar.vue";
 // import LoginPage from "./views/LoginPage.vue";
 import NavBar from "./components/NavBar.vue";
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: "App",
   components: { NavBar,  },
-  data() {
-    return {};
-  },
+  setup() {
+    const store = useStore()
+
+    onBeforeMount(() => {
+      store.dispatch('fetchUser')
+    })
+  }
 });
 </script>
 

@@ -1,29 +1,42 @@
 <template>
-    <form name="login-form" >
-          <h2>Login</h2>
-          <div class="mb-3">
-            <label for="username">Username: </label>
-            <input id="username" type="text" />
-          </div>
-          <div class="mb-3">
-            <label for="password">Password: </label>
-            <input id="password" type="password" />
-          </div>
-          <button class="btn btn-outline-dark" type="submit">
-            Login
-          </button>
-        </form>
+        <form class="login" @submit.prevent="login">
+    <h2>Login</h2>
+    <input 
+        type="email"
+        placeholder="Email address"
+        v-model="login_form.email" /> 
+    <input 
+        type="password"
+        placeholder="Password"
+        autocomplete="on"
+        v-model="login_form.password" />
+    <input 
+        type="submit" 
+        value="Login" />
+  </form>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { ref } from "vue";
+  // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+  import { useStore } from 'vuex';
+  import store from '../store'
 
-export default defineComponent({
-    name: "LoginPage",
-    components: {
-    
-    }
-  });
+  export default {
+      setup () {
+        const login_form = ref({});
+        const store = useStore();
+
+        const login = () => {
+            store.dispatch('login', login_form.value);
+        }
+
+        return {
+          login_form,
+          login,
+        }
+      }
+  }
 </script>
 
 <style>
