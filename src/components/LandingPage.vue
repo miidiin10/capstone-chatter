@@ -1,28 +1,10 @@
 <template>
   <div class="LandingPage">
-    <div class="Frame2">
-      <div class="Frame43357">
-        <div class="Frame1">
-          <div class="Home">Home</div>
-          <div class="AboutUs">About us</div>
-          <div class="Contact">Contact</div>
-          <div class="Blogs">Blogs</div>
-        </div>
-        <div class="Frame5">
-          <div class="Frame3">
-            <div class="LogIn">Log in</div>
-          </div>
-          <div class="Frame4">
-            <div class="SignUp">Sign up</div>
-          </div>
-        </div>
-      </div>
-      <div class="Chatter">CHATTER</div>
-    </div>
+    
     <div class="Frame15">
       <div class="Frame11">
         <div class="Frame10">
-          <div class="AboutChatter">About Chatter</div>
+          <div id="about-section" class="AboutChatter">About Chatter</div>
           <div
             class="ChatterIsAMultiFunctionalPlatformWhereAuthorsAndReadersCanHaveAccessToTheirOwnContentItAimsToBeATraditionalBookwormSHeavenAndABlogToGetAccessToMoreTextBasedContentOurVisionIsToFosterAnInclusiveAndVibrantCommunityWhereDiversityIsCelebratedWeEncourageOpenMindednessAndRespectForAllIndividualsRegardlessOfTheirBackgroundsOrBeliefsByPromotingDialogueAndUnderstandingWeStrive"
           >
@@ -39,7 +21,7 @@
       <img
         class="Unsplash87glifoj79c"
         src="../assets/images/chatter9.jpg"
-        alt=""
+        alt="laptop-on-the-desk"
       />
     </div>
     <img
@@ -499,7 +481,7 @@ export default {};
   width: 1440px;
   height: 765px;
   left: 0px;
-  top: 98px;
+  /* top: ; */
   position: absolute;
   /* background: url("../assets/images/chatter4.jpg"), lightgray 50% / cover no-repeat; */
 }
@@ -511,7 +493,7 @@ export default {};
   padding-top: 216px;
   padding-bottom: 216px;
   left: 0px;
-  top: 99px;
+  /* top: 99px; */
   position: absolute;
   background: rgba(0, 0, 0, 0.55);
   justify-content: center;

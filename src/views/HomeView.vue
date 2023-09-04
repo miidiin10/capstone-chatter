@@ -23,21 +23,48 @@
     </div> -->
     <div>
       <LandingPage />
+      <BlogPost :post="welcomeScreen"/>
+      <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index" />
     </div>
 </template>
 
 <script lang="ts">
+import BlogPost from '../components/BlogPost.vue'
 import NavBar from '../components/NavBar.vue';
 import { defineComponent } from 'vue';
-import LandingPage from '../components/LandingPage.vue';
+// import LandingPage from '../components/LandingPage.vue';
 // import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: "home",
     components: {
       NavBar,
-      LandingPage,
+      // LandingPage,
+      BlogPost,
     },
+  data() {
+    return {
+      welcomeScreen: {
+        title: "Welcome",
+        blogPost: "Weekly blog articles with all things programming including HTML, CSS, JAVASCRIPT AND more. Register today to never miss a post",
+        // landingPage: true,
+        welcomeScreen: true,
+        photo: "chatter1",
+      },
+      sampleBlogPost: [
+        {
+          title: "This is a filter Title",
+          blogHTML: "This is a filter blog post title",
+          blogCoverPhoto: "chatter2",
+        },
+        {
+          title: "This is a filter Title 2",
+          blogHTML: "This is a filter blog post title",
+          blogCoverPhoto: "chatter3",
+        }
+      ]
+    }
+  }
 })
 </script>
 
