@@ -25,12 +25,30 @@
       <LandingPage />
       <BlogPost :post="welcomeScreen"/>
       <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index" />
+      <div class="blog-card-wrap">
+        <div class="container">
+          <h3>View More Recent Blogs</h3>
+          <div class="blog-cards">
+            <BlogCard :post="post" v-for="(post, index) in sampleBlogCards" :key="index" />
+          </div>
+        </div>
+      </div>
+      <div class="updates">
+        <div class="container">
+          <h2>Never miss a post, Register for your free account today</h2>
+          <router-link class="router-button" to="#">
+            Register for Chatter<Arrow class="arrow arrow-light"/>
+          </router-link>
+        </div>
+      </div>
     </div>
 </template>
 
 <script lang="ts">
 import BlogPost from '../components/BlogPost.vue'
+import BlogCard from '../components/BlogCard.vue'
 import NavBar from '../components/NavBar.vue';
+import Arrow from '../assets/icons/arrow-right-light.svg?component'
 import { defineComponent } from 'vue';
 // import LandingPage from '../components/LandingPage.vue';
 // import { useRoute } from 'vue-router';
@@ -41,6 +59,8 @@ export default defineComponent({
       NavBar,
       // LandingPage,
       BlogPost,
+      BlogCard,
+      Arrow
     },
   data() {
     return {
@@ -62,13 +82,61 @@ export default defineComponent({
           blogHTML: "This is a filter blog post title",
           blogCoverPhoto: "chatter3",
         }
-      ]
+      ],
+    }
+  },
+  computed: {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
+
+.blog-card-wrap {
+  h3 {
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+}
+
+.updates {
+  .container {
+    padding:100px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media(min-width: 800px) {
+      padding: 125px 25px;
+      flex-direction: row;
+    }
+
+    .router-button {
+      display: flex;
+      font-size: 14px;
+      text-decoration: none;
+      @media(min-width: 800px) {
+        margin-left: auto;
+      }
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 32px;
+      max-width: 425px;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    @media(min-width: 800px) {
+      text-align: initial;
+      font-size: 40px;
+    }
+  }
+}
 // .top {
 //   display: flex;
 //   width: 100%;

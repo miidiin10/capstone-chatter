@@ -11,9 +11,20 @@ import {
 
 export const store = createStore({
   state: {
-    user: null
+    user: null,
+    sampleBlogCards: [
+        {blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate:"September 1, 2023"},
+        {blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate:"September 1, 2023"},
+        {blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate:"September 1, 2023"},
+        {blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate:"September 1, 2023"},
+      ],
+      editPost: null,
   },
   mutations: {
+    toggleEditPost(state, payload) {
+        state.editPost = payload;
+        console.log(state.editPost)
+    },
     SET_USER (state, user) {
         state.user = user
     },

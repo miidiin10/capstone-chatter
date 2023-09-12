@@ -12,7 +12,7 @@
               <router-link class="link" to="/">Home</router-link>
               <router-link class="link" to="/">About us</router-link>
               <router-link class="link" to="contact">Contact</router-link>
-              <router-link class="link" to="blog">Blogs</router-link>
+              <router-link class="link" to="blogs">Blogs</router-link>
             </ul>
           </div>
           <div>

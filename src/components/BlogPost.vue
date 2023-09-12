@@ -10,7 +10,7 @@
                    Login/Sign up <Arrow class="arrow arrow-light"/>
                 </router-link>
                 <router-link class="link" v-else to="#">
-                    View the Posts <Arrow class="arrow"/>
+                    View The Posts <Arrow class="arrow"/>
                  </router-link>
             </div>         
         </div>
@@ -24,7 +24,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Arrow from '../assets/icons/arrow-right-light.svg?component'
-// import moment from 'moment'
 
 export default defineComponent({
     name: "blogPost",
@@ -40,7 +39,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
     .blog-wrapper {
         display: flex;
         flex-direction: column;
@@ -164,6 +162,7 @@ export default defineComponent({
                 order: 1;
             }
         }
+        
     }
 
     .no-user:first-child {
