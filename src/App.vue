@@ -14,19 +14,19 @@ import { defineComponent, onBeforeMount } from "vue";
 // import NavBar from "./views/NavBar.vue";
 // import LoginPage from "./views/LoginPage.vue";
 import NavBar from "./components/NavBar.vue";
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
 
 export default defineComponent({
   name: "App",
   components: { NavBar,  },
-  setup() {
-    const store = useStore()
+  // setup() {
+  //   const store = useStore()
 
-    onBeforeMount(() => {
-      store.dispatch('fetchUser')
-    });
+  //   onBeforeMount(() => {
+  //     store.dispatch('fetchUser')
+  //   });
 
-  },
+  // },
   data() {
     return {
       navigation: null
